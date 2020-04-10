@@ -67,10 +67,10 @@ inputs = [torch.randn(1, 3) for _ in range(5)]  # make a sequence of length 5
 # initialize the hidden state.
 hidden = (torch.randn(1, 1, 3),
           torch.randn(1, 1, 3))
-for i in inputs:
+for i in inputs:  # i.shape= 1,3
     # Step through the sequence one element at a time.
     # after each step, hidden contains the hidden state.
-    out, hidden = lstm(i.view(1, 1, -1), hidden)
+    out, hidden = lstm(i.view(1, 1, -1), hidden) # 第二个分量是batch,第一个是多少个序列,第三个是序列的长度.也就是特征的数量.
 
 # alternatively, we can do the entire sequence all at once.
 # the first value returned by LSTM is all of the hidden states throughout
@@ -83,7 +83,7 @@ for i in inputs:
 # Add the extra 2nd dimension
 inputs = torch.cat(inputs).view(len(inputs), 1, -1)
 hidden = (torch.randn(1, 1, 3), torch.randn(1, 1, 3))  # clean out hidden state
-out, hidden = lstm(inputs, hidden)
+out, hidden = lstm(inputs, hidden) # 直接都扔进去也一样.
 print(out)
 print(hidden)
 
@@ -120,7 +120,7 @@ print(hidden)
 #
 #
 # Prepare data:
-
+# 这是一个句子tag任务.把里面单词做分类tag
 def prepare_sequence(seq, to_ix):
     idxs = [to_ix[w] for w in seq]
     return torch.tensor(idxs, dtype=torch.long)
@@ -200,7 +200,7 @@ for epoch in range(300):  # again, normally you would NOT do 300 epochs, it is t
         tag_scores = model(sentence_in)
 
         # Step 4. Compute the loss, gradients, and update the parameters by
-        #  calling optimizer.step()
+        #  calling optimizer.step() # 就是一个3分类问题而已.过了吧.没意思.简单lstm泡泡的代码.easy
         loss = loss_function(tag_scores, targets)
         loss.backward()
         optimizer.step()

@@ -221,14 +221,14 @@ And see thy blood warm when thou feel'st it cold.""".split()
 # we should tokenize the input, but we will ignore that for now
 # build a list of tuples.  Each tuple is ([ word_i-2, word_i-1 ], target word)
 trigrams = [([test_sentence[i], test_sentence[i + 1]], test_sentence[i + 2])
-            for i in range(len(test_sentence) - 2)]
+            for i in range(len(test_sentence) - 2)]  # 这里面就是tri-gram算法, 对于i位置,我们给他的contex是他的前2个字母.所以华东窗口大小是3. 有论文说3-gram是最好的算法.
 # print the first 3, just so you can see what they look like
 print(trigrams[:3])
 
 vocab = set(test_sentence)
 word_to_ix = {word: i for i, word in enumerate(vocab)}
 
-
+# 下面这个class就是N-gram的核心了.embed之后接2个全连接,然后直接输出概率就行了.
 class NGramLanguageModeler(nn.Module):
 
     def __init__(self, vocab_size, embedding_dim, context_size):
@@ -247,7 +247,7 @@ class NGramLanguageModeler(nn.Module):
 
 losses = []
 loss_function = nn.NLLLoss()
-model = NGramLanguageModeler(len(vocab), EMBEDDING_DIM, CONTEXT_SIZE)
+model = NGramLanguageModeler(len(vocab), EMBEDDING_DIM, CONTEXT_SIZE) # CONTEXT_SIZE 表示窗口大小,这里面取的是前置窗口且大小为3.
 optimizer = optim.SGD(model.parameters(), lr=0.001)
 
 for epoch in range(10):

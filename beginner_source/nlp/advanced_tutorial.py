@@ -1,3 +1,12 @@
+'''
+可算到了这个,就是因为这个代码所以才找到了整个教程.
+
+这个任务叫做NER: 命名实体识别.就是一个多分类问题,对一个单词,告诉他是名词还是地名还是动词什么的.
+
+
+'''
+
+
 # -*- coding: utf-8 -*-
 r"""
 Advanced: Making Dynamic Decisions and the Bi-LSTM CRF
