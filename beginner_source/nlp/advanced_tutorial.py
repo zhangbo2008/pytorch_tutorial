@@ -149,7 +149,7 @@ def prepare_sequence(seq, to_ix):
 
 # Compute log sum exp in a numerically stable way for the forward algorithm
 def log_sum_exp(vec):
-    max_score = vec[0, argmax(vec)]
+    max_score = vec[0, argmax(vec)] # 取分量0里面最大的作为分数
     max_score_broadcast = max_score.view(1, -1).expand(1, vec.size()[1])
     return max_score + \
         torch.log(torch.sum(torch.exp(vec - max_score_broadcast)))
@@ -174,24 +174,24 @@ class BiLSTM_CRF(nn.Module):
 
         # Maps the output of the LSTM into tag space.
         self.hidden2tag = nn.Linear(hidden_dim, self.tagset_size)
-
+# 定义转移矩阵.就是一个2维张亮.
         # Matrix of transition parameters.  Entry i,j is the score of
-        # transitioning *to* i *from* j.
+        # transitioning *to* i *from* j.    这里注意是从j到i的得分.跟我们正常的设置是反过来的.注意一下
         self.transitions = nn.Parameter(
             torch.randn(self.tagset_size, self.tagset_size))
-
+# 设置转移矩阵的start和end 的特苏醒.
         # These two statements enforce the constraint that we never transfer
         # to the start tag and we never transfer from the stop tag
-        self.transitions.data[tag_to_ix[START_TAG], :] = -10000
-        self.transitions.data[:, tag_to_ix[STOP_TAG]] = -10000
+        self.transitions.data[tag_to_ix[START_TAG], :] = -10000  # 所以任何东西到start的得分都非常差,所以永远不会走这条路.
+        self.transitions.data[:, tag_to_ix[STOP_TAG]] = -10000# 同样设置结束后再走的得分也是非常低,所以到达end之后就不会再行走了.
 
         self.hidden = self.init_hidden()
 
-    def init_hidden(self):
+    def init_hidden(self): # 初始化需要2个.
         return (torch.randn(2, 1, self.hidden_dim // 2),
                 torch.randn(2, 1, self.hidden_dim // 2))
 
-    def _forward_alg(self, feats):
+    def _forward_alg(self, feats): # 计算分布函数
         # Do the forward algorithm to compute the partition function
         init_alphas = torch.full((1, self.tagset_size), -10000.)
         # START_TAG has all of the score.
@@ -223,7 +223,7 @@ class BiLSTM_CRF(nn.Module):
         return alpha
 
     def _get_lstm_features(self, sentence):
-        self.hidden = self.init_hidden()
+        self.hidden = self.init_hidden() # 这个是不是应该不写啊,每一次都初始化感觉不对啊.我把这样注释掉.因为这样我理解肯定是不应该写的. 这行必须写,不写就报错.奇怪!!!!!!!!!! 这个地方是给lstm输入一个隐藏层的参数,所以每一次给他一个随机的就行.或者都是0也行. 不影响网络的. 这个地方主义需要初始化2个
         embeds = self.word_embeds(sentence).view(len(sentence), 1, -1)
         lstm_out, self.hidden = self.lstm(embeds, self.hidden)
         lstm_out = lstm_out.view(len(sentence), self.hidden_dim)
@@ -243,15 +243,15 @@ class BiLSTM_CRF(nn.Module):
     def _viterbi_decode(self, feats):
         backpointers = []
 
-        # Initialize the viterbi variables in log space
+        # Initialize the viterbi variables in log space  # tagset_size=5: bio加2个标识
         init_vvars = torch.full((1, self.tagset_size), -10000.)
-        init_vvars[0][self.tag_to_ix[START_TAG]] = 0
+        init_vvars[0][self.tag_to_ix[START_TAG]] = 0  # 开始位置设置为0 loss
 
         # forward_var at step i holds the viterbi variables for step i-1
         forward_var = init_vvars
-        for feat in feats:
-            bptrs_t = []  # holds the backpointers for this step
-            viterbivars_t = []  # holds the viterbi variables for this step
+        for feat in feats: #
+            bptrs_t = []  # holds the backpointers for this step # 保存路径id
+            viterbivars_t = []  # holds the viterbi variables for this step  # 保存路径得分
 
             for next_tag in range(self.tagset_size):
                 # next_tag_var[i] holds the viterbi variable for tag i at the
@@ -286,15 +286,15 @@ class BiLSTM_CRF(nn.Module):
 
     def neg_log_likelihood(self, sentence, tags):
         feats = self._get_lstm_features(sentence)
-        forward_score = self._forward_alg(feats)
-        gold_score = self._score_sentence(feats, tags)
+        forward_score = self._forward_alg(feats) # 利用feat 和转移矩阵
+        gold_score = self._score_sentence(feats, tags)  # 利用feat 和transtion矩阵和tag算的.所以这个数值跟forward_score约接近越好.
         return forward_score - gold_score
 
     def forward(self, sentence):  # dont confuse this with _forward_alg above.
-        # Get the emission scores from the BiLSTM
+        # Get the emission scores from the BiLSTM  # 先进行blstm得分.
         lstm_feats = self._get_lstm_features(sentence)
 
-        # Find the best path, given the features.
+        # Find the best path, given the features.  # 然后把features喂给vitebi算法,算出最优路径即可.
         score, tag_seq = self._viterbi_decode(lstm_feats)
         return score, tag_seq
 
@@ -307,7 +307,7 @@ STOP_TAG = "<STOP>"
 EMBEDDING_DIM = 5
 HIDDEN_DIM = 4
 
-# Make up some training data
+# Make up some training data# 实体表示.bio b表示实体的开始,i表示实体的后续,o表示其他,说明这个单词不是实体单词,实体单词也就是专有名词. 下面的the wall street jounal  apple corporation 这2个是实体.   georgia tech 也是实体,  georgia也是实体,其他都不是实体单词.只是普通名词或者其他词性.
 training_data = [(
     "the wall street journal reported today that apple corporation made money".split(),
     "B I I I O O O B I O O".split()
@@ -317,21 +317,24 @@ training_data = [(
 )]
 
 word_to_ix = {}
-for sentence, tags in training_data:
+for sentence, tags in training_data:  # 进行单词编码,穿件word2id字典.
     for word in sentence:
         if word not in word_to_ix:
             word_to_ix[word] = len(word_to_ix)
-
+# 对于tag也进行编码
 tag_to_ix = {"B": 0, "I": 1, "O": 2, START_TAG: 3, STOP_TAG: 4}
 
 model = BiLSTM_CRF(len(word_to_ix), tag_to_ix, EMBEDDING_DIM, HIDDEN_DIM)
 optimizer = optim.SGD(model.parameters(), lr=0.01, weight_decay=1e-4)
 
 # Check predictions before training
+print("首先打印训练之前的预测结果")
 with torch.no_grad():
     precheck_sent = prepare_sequence(training_data[0][0], word_to_ix)
     precheck_tags = torch.tensor([tag_to_ix[t] for t in training_data[0][1]], dtype=torch.long)
     print(model(precheck_sent))
+
+# 下面是训练代码!!!!!!!!!!!!!!!!!
 
 # Make sure prepare_sequence from earlier in the LSTM section is loaded
 for epoch in range(
@@ -353,7 +356,7 @@ for epoch in range(
         # calling optimizer.step()
         loss.backward()
         optimizer.step()
-
+print("训练之后做预测")
 # Check predictions after training
 with torch.no_grad():
     precheck_sent = prepare_sequence(training_data[0][0], word_to_ix)

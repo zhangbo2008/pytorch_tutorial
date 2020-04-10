@@ -1,3 +1,6 @@
+
+
+
 # -*- coding: utf-8 -*-
 """
 Spatial Transformer Networks Tutorial
@@ -36,6 +39,15 @@ import torchvision
 from torchvision import datasets, transforms
 import matplotlib.pyplot as plt
 import numpy as np
+
+'''
+看空间transformer的使用,也就是把transformer用在图像上.
+直接鲁代码, 感觉跟nlp里面的差不多.
+'''
+
+
+
+
 
 plt.ion()   # interactive mode
 
