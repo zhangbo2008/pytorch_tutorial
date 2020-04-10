@@ -49,7 +49,7 @@ import numpy as np
 
 
 
-plt.ion()   # interactive mode
+# plt.ion()   # interactive mode
 
 ######################################################################
 # Loading the data
@@ -67,13 +67,13 @@ train_loader = torch.utils.data.DataLoader(
                    transform=transforms.Compose([
                        transforms.ToTensor(),
                        transforms.Normalize((0.1307,), (0.3081,))
-                   ])), batch_size=64, shuffle=True, num_workers=4)
+                   ])), batch_size=64, shuffle=True, num_workers=0)
 # Test dataset
 test_loader = torch.utils.data.DataLoader(
     datasets.MNIST(root='.', train=False, transform=transforms.Compose([
         transforms.ToTensor(),
         transforms.Normalize((0.1307,), (0.3081,))
-    ])), batch_size=64, shuffle=True, num_workers=4)
+    ])), batch_size=64, shuffle=True, num_workers=0)
 
 ######################################################################
 # Depicting spatial transformer networks
@@ -261,5 +261,3 @@ for epoch in range(1, 20 + 1):
 # Visualize the STN transformation on some input batch
 visualize_stn()
 
-plt.ioff()
-plt.show()

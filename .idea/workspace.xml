@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d36abd3-090d-45bb-8ba4-e5b61a14b2a9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/877878.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crf.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MNIST/processed/test.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MNIST/processed/training.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MNIST/raw/t10k-images-idx3-ubyte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MNIST/raw/t10k-images-idx3-ubyte.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MNIST/raw/t10k-labels-idx1-ubyte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MNIST/raw/t10k-labels-idx1-ubyte.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MNIST/raw/train-images-idx3-ubyte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MNIST/raw/train-images-idx3-ubyte.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MNIST/raw/train-labels-idx1-ubyte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MNIST/raw/train-labels-idx1-ubyte.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spatial_transformer_tutorial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beginner_source/nlp/advanced_tutorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/beginner_source/nlp/advanced_tutorial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/intermediate_source/spatial_transformer_tutorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/intermediate_source/spatial_transformer_tutorial.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +41,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -44,7 +53,7 @@
       <recent name="E:\Users\Administrator\PycharmProjects\pytorch_tutorial" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.spatial_transformer_tutorial">
+  <component name="RunManager" selected="Python.spatial_transformer_tutorial (1)">
     <configuration name="advanced_tutorial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="33" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -81,6 +90,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/beginner_source/nlp/sequence_models_tutorial.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="spatial_transformer_tutorial (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="33" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spatial_transformer_tutorial.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -135,6 +166,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.spatial_transformer_tutorial (1)" />
         <item itemvalue="Python.spatial_transformer_tutorial" />
         <item itemvalue="Python.advanced_tutorial" />
         <item itemvalue="Python.sequence_models_tutorial" />
@@ -152,50 +184,57 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586480527875</updated>
-      <workItem from="1586480529169" duration="18600000" />
+      <workItem from="1586480529169" duration="21917000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="396" y="47" key="#xdebugger.evaluate" timestamp="1586520616655">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="396" y="47" key="#xdebugger.evaluate/0.0.1280.680@0.0.1280.680" timestamp="1586520616655" />
     <state width="1278" height="440" key="DebuggerActiveHint" timestamp="1586501259829">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1278" height="440" key="DebuggerActiveHint/0.0.1280.680@0.0.1280.680" timestamp="1586501259829" />
-    <state width="1237" height="173" key="GridCell.Tab.0.bottom" timestamp="1586520210435">
+    <state width="1237" height="242" key="GridCell.Tab.0.bottom" timestamp="1586523865669">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="173" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586520210435" />
-    <state width="1237" height="173" key="GridCell.Tab.0.center" timestamp="1586520210435">
+    <state width="1237" height="242" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586523865669" />
+    <state width="1237" height="242" key="GridCell.Tab.0.center" timestamp="1586523865669">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="173" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1586520210435" />
-    <state width="1237" height="173" key="GridCell.Tab.0.left" timestamp="1586520210435">
+    <state width="1237" height="242" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1586523865669" />
+    <state width="1237" height="242" key="GridCell.Tab.0.left" timestamp="1586523865669">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="173" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1586520210435" />
-    <state width="1237" height="173" key="GridCell.Tab.0.right" timestamp="1586520210435">
+    <state width="1237" height="242" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1586523865669" />
+    <state width="1237" height="242" key="GridCell.Tab.0.right" timestamp="1586523865669">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="173" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1586520210435" />
-    <state width="1237" height="173" key="GridCell.Tab.1.bottom" timestamp="1586520214828">
+    <state width="1237" height="242" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1586523865669" />
+    <state width="1237" height="242" key="GridCell.Tab.1.bottom" timestamp="1586523865669">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="173" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586520214828" />
-    <state width="1237" height="173" key="GridCell.Tab.1.center" timestamp="1586520214828">
+    <state width="1237" height="242" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1586523865669" />
+    <state width="1237" height="242" key="GridCell.Tab.1.center" timestamp="1586523865669">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="173" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1586520214828" />
-    <state width="1237" height="173" key="GridCell.Tab.1.left" timestamp="1586520214827">
+    <state width="1237" height="242" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1586523865669" />
+    <state width="1237" height="242" key="GridCell.Tab.1.left" timestamp="1586523865669">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="173" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1586520214827" />
-    <state width="1237" height="173" key="GridCell.Tab.1.right" timestamp="1586520214828">
+    <state width="1237" height="242" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1586523865669" />
+    <state width="1237" height="242" key="GridCell.Tab.1.right" timestamp="1586523865669">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="173" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1586520214828" />
+    <state width="1237" height="242" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1586523865669" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -226,9 +265,9 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/intermediate_source/spatial_transformer_tutorial.py</url>
-          <line>51</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/spatial_transformer_tutorial.py</url>
+          <line>176</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -254,13 +293,19 @@
         <watch expression="feat" />
         <watch expression="torch.cat(viterbivars_t)" />
         <watch expression="viterbivars_t" />
+        <watch expression="self.localization" />
+        <watch expression="data" />
+        <watch expression="x" language="Python" />
+        <watch expression="xs" />
+        <watch expression="theta" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pytorch_tutorial$sequence_models_tutorial.coverage" NAME="sequence_models_tutorial Coverage Results" MODIFIED="1586503720464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/beginner_source/nlp" />
+    <SUITE FILE_PATH="coverage/pytorch_tutorial$spatial_transformer_tutorial__1_.coverage" NAME="spatial_transformer_tutorial (1) Coverage Results" MODIFIED="1586521554980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pytorch_tutorial$word_embeddings_tutorial.coverage" NAME="word_embeddings_tutorial Coverage Results" MODIFIED="1586502361131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/beginner_source/nlp" />
-    <SUITE FILE_PATH="coverage/pytorch_tutorial$spatial_transformer_tutorial.coverage" NAME="spatial_transformer_tutorial Coverage Results" MODIFIED="1586520182130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intermediate_source" />
+    <SUITE FILE_PATH="coverage/pytorch_tutorial$spatial_transformer_tutorial.coverage" NAME="spatial_transformer_tutorial Coverage Results" MODIFIED="1586521321778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/intermediate_source" />
     <SUITE FILE_PATH="coverage/pytorch_tutorial$advanced_tutorial.coverage" NAME="advanced_tutorial Coverage Results" MODIFIED="1586517978146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/beginner_source/nlp" />
   </component>
 </project>
