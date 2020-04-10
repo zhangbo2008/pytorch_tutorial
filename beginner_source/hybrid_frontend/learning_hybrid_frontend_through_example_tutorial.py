@@ -1,3 +1,14 @@
+'''
+有些资源,pytorch官网点不进去了.可能是资源太久了,直接看代码吧.
+
+能点进去的,先学了,点不进去的直接看代码.
+
+
+这个项目有,所以点进readme.txt 里面看链接.
+
+'''
+
+
 # -*- coding: utf-8 -*-
 """
 Learning Hybrid Frontend Syntax Through Example

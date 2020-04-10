@@ -1,4 +1,16 @@
 # -*- coding: utf-8 -*-
+
+# 这个就是词嵌入模型的假设  ,在这个之上我们会进行建模.
+# words appearing in similar contexts are related to each other semantically
+
+
+
+
+
+
+
+
+
 r"""
 Word Embeddings: Encoding Lexical Semantics
 ===========================================
